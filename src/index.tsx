@@ -1,12 +1,5 @@
 import React, { ReactNode, useState, useEffect } from 'react';
-// Define an interface that extends JSX.IntrinsicElements
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      div: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
-    }
-  }
-}
+
 interface ErrorBoundaryProps {
   children: ReactNode;
   action: (error:Error) => void;
