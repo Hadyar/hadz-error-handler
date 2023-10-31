@@ -1,6 +1,6 @@
 {
     "name": "hadz-error-handler",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Custom free error boundary component for React",
     "main": "src/index.tsx",
     "scripts": {

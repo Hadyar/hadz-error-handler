@@ -1,3 +1,4 @@
+```markdown
 # Hadz Error Handler
 
 `hadz-error-handler` is a custom error boundary component for React that helps you handle and display errors gracefully within your application.
@@ -12,15 +13,20 @@ npm install hadz-error-handler
 
 ## Usage
 
-Wrap your application with the `ErrorBoundary` component to capture and handle errors. This component will display an error message when an error occurs within its children.
+Wrap your application with the `ErrorBoundary` component to capture and handle errors. This component will display an error message when an error occurs within its children. You can also provide a custom error message to be displayed.
 
 ```jsx
 import React from 'react';
-import ErrorBoundary from 'my-error-handler';
+import ErrorBoundary from 'hadz-error-handler';
 
 function App() {
   return (
-    <ErrorBoundary>
+    <ErrorBoundary
+      action={(error) => {
+        // Define the action to take on error, like reporting it
+        // to a server or displaying a user-friendly error message.
+      }
+    >
       {/* Your application content */}
     </ErrorBoundary>
   );
@@ -31,15 +37,33 @@ export default App;
 
 ## Customization
 
-You can customize the error handling behavior by handling the error and reporting it within the `ErrorBoundary` component. Modify the `componentDidCatch` method in the component to handle error reporting or logging.
+You can customize the error handling behavior by providing an `action` prop to the `ErrorBoundary` component, which specifies the action to be taken on an error. Modify the `componentDidCatch` method in the component to handle error reporting or logging.
 
-```tsx
-class ErrorBoundary extends Component {
-  componentDidCatch(error, info) {
-    // Handle error logging or reporting here
+```jsx
+<ErrorBoundary
+  action={(error) => {
+    // Define the action to take on error, like reporting it
+    // to a server or displaying a user-friendly error message.
   }
-  // ...
-}
+>
+  {/* Your application content */}
+</ErrorBoundary>
+```
+
+## Custom Error Message
+
+You can also provide a custom error message to be displayed when an error occurs by passing the `customError` prop:
+
+```jsx
+<ErrorBoundary
+  action={(error) => {
+    // Define the action to take on error, like reporting it
+    // to a server or displaying a user-friendly error message.
+  }
+  customError={<div>Error: Something went wrong.</div>}
+>
+  {/* Your application content */}
+</ErrorBoundary>
 ```
 
 ## License
@@ -57,5 +81,4 @@ Feel free to contribute by submitting issues and pull requests.
 ## Acknowledgments
 
 - Inspired by the need for a simple error boundary component.
-
----
+```

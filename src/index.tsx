@@ -9,7 +9,8 @@ declare global {
 }
 interface ErrorBoundaryProps {
   children: ReactNode;
-  action:()=>void;
+  action: (error:Error) => void;
+  customError?: ReactNode;
 }
 
 interface ErrorBoundaryState {
@@ -17,7 +18,7 @@ interface ErrorBoundaryState {
   error: Error | null;
 }
 
-const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({ children, action }) => {
+const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({ children, action, customError }) => {
   const [errorState, setErrorState] = useState<ErrorBoundaryState>({
     hasError: false,
     error: null,
@@ -27,7 +28,7 @@ const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({ children, action }) => {
     const componentDidCatch = (error: Error) => {
       setErrorState({ hasError: true, error });
       // Handle error logging or reporting here
-      action()
+      action(error)
     };
 
     window.addEventListener('error', (event: ErrorEvent) => {
@@ -45,6 +46,9 @@ const ErrorBoundary: React.FC<ErrorBoundaryProps> = ({ children, action }) => {
   }, []);
 
   if (errorState.hasError) {
+
+    if (customError) return <>{customError}</>
+
     return (
       <div>
         <h2>Something went wrong.</h2>
