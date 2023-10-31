@@ -1,0 +1,22 @@
+{
+    "name": "hadz-error-handler",
+    "version": "1.0.0",
+    "description": "Custom free error boundary component for React",
+    "main": "src/index.tsx",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "react",
+        "error-boundary",
+        "error-handling"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+        "react": "^16.8.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.2.33"
+    }
+}
