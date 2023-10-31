@@ -1,4 +1,4 @@
-# HADZ Error Handler
+# Hadz Error Handler
 
 `hadz-error-handler` is a custom error boundary component for React that helps you handle and display errors gracefully within your application.
 
@@ -48,7 +48,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Author
 
-[Your Name]
+Hady Abi Rizk
 
 ## Contributing
 
